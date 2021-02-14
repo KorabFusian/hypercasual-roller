@@ -25,6 +25,8 @@ public class GameFlow : MonoBehaviour
         yield return new WaitForSeconds(1);
         Instantiate(tile1Obj, nextTileSpawn, tile1Obj.rotation);
         nextTileSpawn.z += 3;
+        Instantiate(tile1Obj, nextTileSpawn, tile1Obj.rotation);
+        nextTileSpawn.z += 3;
         StartCoroutine(spawnTile());
     }
 
