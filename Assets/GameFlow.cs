@@ -20,17 +20,13 @@ public class GameFlow : MonoBehaviour
     private int randX;
     private int randChoice;
 
+    private bool isOver = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        nextTileSpawn.z = 21;
+        nextTileSpawn.z = 27;
         StartCoroutine(spawnTile());
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator spawnTile()
@@ -69,6 +65,15 @@ public class GameFlow : MonoBehaviour
         Instantiate(coneObj, nextConeSpawn, coneObj.rotation);
         nextTileSpawn.z += 3;
         StartCoroutine(spawnTile());
+    }
+
+    public void EndGame()
+    {
+        if(isOver == false)
+        {
+            isOver = true;
+            Debug.Log("GAME OVER");
+        }
     }
 
 }

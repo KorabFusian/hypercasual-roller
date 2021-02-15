@@ -6,6 +6,8 @@ public class RollyBall : MonoBehaviour
 {
     private bool laneChange = false;
 
+    public Swipe swiper;
+
 
     // Start is called before the first frame update
     void Start()
@@ -16,13 +18,13 @@ public class RollyBall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey("a") && laneChange == false && transform.position.x > -.9f)
+        if(swiper.SwipeLeft && laneChange == false && transform.position.x > -.9f)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(-4, 0, 3);
             laneChange = true;
             StartCoroutine(StopLaneChange());
         }
-        if(Input.GetKey("d") && laneChange == false && transform.position.x < .9f)
+        if(swiper.SwipeRight && laneChange == false && transform.position.x < .9f)
         {
             GetComponent<Rigidbody>().velocity = new Vector3(4, 0, 3);
             laneChange = true;
@@ -48,7 +50,7 @@ public class RollyBall : MonoBehaviour
         {
             transform.position = new Vector3(1, transform.position.y, transform.position.z);
         }
-        Debug.Log(GetComponent<Transform>().position);
+        // Debug.Log(GetComponent<Transform>().position);
     }
 
 
@@ -56,7 +58,7 @@ public class RollyBall : MonoBehaviour
     {
         if(col.tag == "obstacle")
         {
-            Debug.Log("okoko");
+            FindObjectOfType<GameFlow>().EndGame();
         }
     }
 }
