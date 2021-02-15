@@ -33,8 +33,21 @@ public class RollyBall : MonoBehaviour
     IEnumerator StopLaneChange() 
     {
         yield return new WaitForSeconds(.25f);
+        
         laneChange = false;
         GetComponent<Rigidbody>().velocity = new Vector3(0,0,3);
+        if(-1.5 < transform.position.x && transform.position.x < -0.5)
+        {
+            transform.position = new Vector3(-1, transform.position.y, transform.position.z);
+        }
+        if(-.5 < transform.position.x && transform.position.x < 0.5)
+        {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        }
+        if(.5 < transform.position.x && transform.position.x < 1.5)
+        {
+            transform.position = new Vector3(1, transform.position.y, transform.position.z);
+        }
         Debug.Log(GetComponent<Transform>().position);
     }
 
