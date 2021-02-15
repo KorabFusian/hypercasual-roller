@@ -9,6 +9,6 @@ public class Score : MonoBehaviour
     public Text scoreText;
     void Update()
     {
-        scoreText.text = Mathf.Floor(player.position.z).ToString();
+        scoreText.text = player.position.z.ToString("0");
     }
 }

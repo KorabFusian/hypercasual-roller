@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameFlow : MonoBehaviour
 {
+    public Transform player;
 
     public Transform tile1Obj;
     private Vector3 nextTileSpawn;
@@ -74,6 +75,9 @@ public class GameFlow : MonoBehaviour
         {
             isOver = true;
             Debug.Log("GAME OVER");
+            int playerScore = (int)player.position.z;
+            if(playerScore > PlayerPrefs.GetInt("HighScore", 0))
+                PlayerPrefs.SetInt("HighScore", playerScore);
             Restart();
         }
     }
