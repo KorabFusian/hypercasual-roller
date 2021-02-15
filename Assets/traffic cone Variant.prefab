@@ -94,7 +94,12 @@ PrefabInstance:
     - target: {fileID: 9130612325726287215, guid: 7c58241147f781142bbc4580e90f70dc,
         type: 3}
       propertyPath: m_Name
-      value: traffic cone
+      value: traffic cone Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9130612325726287215, guid: 7c58241147f781142bbc4580e90f70dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c58241147f781142bbc4580e90f70dc, type: 3}
